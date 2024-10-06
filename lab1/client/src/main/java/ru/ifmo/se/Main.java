@@ -12,6 +12,7 @@ import ru.ifmo.se.soap.HeroListRequestDto;
 import ru.ifmo.se.soap.HeroWebService;
 import ru.ifmo.se.soap.HeroWebServiceService;
 
+import javax.xml.namespace.QName;
 import java.net.URL;
 import java.util.*;
 
@@ -46,8 +47,8 @@ public class Main {
         prettyPrinter.indentArraysWith(DefaultIndenter.SYSTEM_LINEFEED_INSTANCE);
         objectMapper.setDefaultPrettyPrinter(prettyPrinter);
 
-        URL url = new URL("http://localhost:8080/HeroService?wsdl");
-        HeroWebServiceService heroWebServiceService = new HeroWebServiceService(url);
+        URL url = new URL("http://localhost:8080/lab1-j2ee/HeroService?wsdl");
+        HeroWebServiceService heroWebServiceService = new HeroWebServiceService(url, new QName("http://soap.se.ifmo.ru/", "HeroService"));
         HeroWebService heroWebServiceProxy = heroWebServiceService.getHeroWebServicePort();
 
         ListHeroesCommand listHeroesCommand = new ListHeroesCommand(heroWebServiceProxy, objectMapper);
