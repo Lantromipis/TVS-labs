@@ -51,9 +51,9 @@
 
 ## Запуск и проверка standalone сервиса
 1. `mvn clean install` внутри дириктории lab1-standalone
-2. `java -jar lab1-standalone.jar` внутри дирикетории lab1-standalone/target
+2. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab1-standalone.jar` внутри дирикетории lab1-standalone/target
 3. `mvn clean install` внутри дириктории lab1-client
-4. `java -jar lab1-client.jar` внутри дирикетории lab1-client/target
+4. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab1-client.jar` внутри дирикетории lab1-client/target
 5. Воспользоваться командой `help` и командой `listHeroes`
 6. Для написания RSQL предикатов можно вопсользоваться README из библиотеки https://github.com/jirutka/rsql-parser. Поддержаны логические операторы AND и OR, а также операторы сравнения `==`, `!=`, `=lt=`, `=le=`, `=gt=`, `=ge=`.
 

@@ -24,6 +24,8 @@ public class HelpCommand implements CliCommand {
                     .append("\n");
         }
 
+        stringBuilder.append("exit : Exit application");
+
         System.out.println(stringBuilder);
     }
 

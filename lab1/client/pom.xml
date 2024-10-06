@@ -41,6 +41,13 @@
         </dependency>
 
         <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-ri</artifactId>
+            <version>2.3.7</version>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.17.2</version>
@@ -57,6 +64,10 @@
                         <manifest>
                             <mainClass>ru.ifmo.se.Main</mainClass>
                         </manifest>
+                        <manifestEntries>
+                            <!-- This fixed the CatalogManager exception problem -->
+                            <Multi-Release>true</Multi-Release>
+                        </manifestEntries>
                     </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -90,7 +101,7 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            <plugin>
+<!--            <plugin>
                 <groupId>com.sun.xml.ws</groupId>
                 <artifactId>jaxws-maven-plugin</artifactId>
                 <version>2.3.7</version>
@@ -106,23 +117,23 @@
                         <wsdlUrl>http://localhost:8080/HeroService?wsdl</wsdlUrl>
                     </wsdlUrls>
                     <verbose>true</verbose>
-                    <!-- you should generate sources in a target subdirectory -->
+                    &lt;!&ndash; you should generate sources in a target subdirectory &ndash;&gt;
                     <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
                     <extension>true</extension>
                     <xjcArgs>
-                        <!-- based on usage of jaxb2-basics -->
+                        &lt;!&ndash; based on usage of jaxb2-basics &ndash;&gt;
                         <xjcArg>-Xsetters</xjcArg>
                     </xjcArgs>
                 </configuration>
                 <dependencies>
                     <dependency>
-                        <!-- move from org.andromda.thirdparty.jaxb2_commons:collection-setter-injector to jaxb2-basics -->
+                        &lt;!&ndash; move from org.andromda.thirdparty.jaxb2_commons:collection-setter-injector to jaxb2-basics &ndash;&gt;
                         <groupId>org.jvnet.jaxb</groupId>
                         <artifactId>jaxb2-basics</artifactId>
                         <version>2.0.9</version>
                     </dependency>
                 </dependencies>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 
