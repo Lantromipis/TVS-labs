@@ -1,0 +1,3 @@
+# Project exclude paths
+/lab1/client/target/
+/lab1/standalone/target/
