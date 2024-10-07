@@ -6,10 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import ru.ifmo.se.command.api.CliCommand;
 import ru.ifmo.se.command.impl.HelpCommand;
 import ru.ifmo.se.command.impl.ListHeroesCommand;
+import ru.ifmo.se.soap.HeroService;
 import ru.ifmo.se.soap.HeroWebService;
-import ru.ifmo.se.soap.HeroWebServiceService;
 
-import javax.xml.namespace.QName;
 import java.net.URL;
 import java.util.*;
 
@@ -52,8 +51,8 @@ public class Main {
         objectMapper.setDefaultPrettyPrinter(prettyPrinter);
 
         URL url = new URL(soapUrl);
-        HeroWebServiceService heroWebServiceService = new HeroWebServiceService(url, new QName("http://soap.se.ifmo.ru/", "HeroService"));
-        HeroWebService heroWebServiceProxy = heroWebServiceService.getHeroWebServicePort();
+        HeroService heroService = new HeroService(url);
+        HeroWebService heroWebServiceProxy = heroService.getHeroWebServicePort();
 
         ListHeroesCommand listHeroesCommand = new ListHeroesCommand(heroWebServiceProxy, objectMapper);
         commands.put(listHeroesCommand.getName(), listHeroesCommand);

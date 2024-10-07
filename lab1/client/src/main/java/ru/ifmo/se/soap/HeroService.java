@@ -17,14 +17,14 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "HeroWebServiceService", targetNamespace = "http://soap.se.ifmo.ru/", wsdlLocation = "http://localhost:8080/HeroService?wsdl")
-public class HeroWebServiceService
+@WebServiceClient(name = "HeroService", targetNamespace = "http://soap.se.ifmo.ru/", wsdlLocation = "http://localhost:8080/HeroService?wsdl")
+public class HeroService
     extends Service
 {
 
-    private static final URL HEROWEBSERVICESERVICE_WSDL_LOCATION;
-    private static final WebServiceException HEROWEBSERVICESERVICE_EXCEPTION;
-    private static final QName HEROWEBSERVICESERVICE_QNAME = new QName("http://soap.se.ifmo.ru/", "HeroWebServiceService");
+    private static final URL HEROSERVICE_WSDL_LOCATION;
+    private static final WebServiceException HEROSERVICE_EXCEPTION;
+    private static final QName HEROSERVICE_QNAME = new QName("http://soap.se.ifmo.ru/", "HeroService");
 
     static {
         URL url = null;
@@ -34,31 +34,31 @@ public class HeroWebServiceService
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
-        HEROWEBSERVICESERVICE_WSDL_LOCATION = url;
-        HEROWEBSERVICESERVICE_EXCEPTION = e;
+        HEROSERVICE_WSDL_LOCATION = url;
+        HEROSERVICE_EXCEPTION = e;
     }
 
-    public HeroWebServiceService() {
-        super(__getWsdlLocation(), HEROWEBSERVICESERVICE_QNAME);
+    public HeroService() {
+        super(__getWsdlLocation(), HEROSERVICE_QNAME);
     }
 
-    public HeroWebServiceService(WebServiceFeature... features) {
-        super(__getWsdlLocation(), HEROWEBSERVICESERVICE_QNAME, features);
+    public HeroService(WebServiceFeature... features) {
+        super(__getWsdlLocation(), HEROSERVICE_QNAME, features);
     }
 
-    public HeroWebServiceService(URL wsdlLocation) {
-        super(wsdlLocation, HEROWEBSERVICESERVICE_QNAME);
+    public HeroService(URL wsdlLocation) {
+        super(wsdlLocation, HEROSERVICE_QNAME);
     }
 
-    public HeroWebServiceService(URL wsdlLocation, WebServiceFeature... features) {
-        super(wsdlLocation, HEROWEBSERVICESERVICE_QNAME, features);
+    public HeroService(URL wsdlLocation, WebServiceFeature... features) {
+        super(wsdlLocation, HEROSERVICE_QNAME, features);
     }
 
-    public HeroWebServiceService(URL wsdlLocation, QName serviceName) {
+    public HeroService(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
     }
 
-    public HeroWebServiceService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+    public HeroService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
         super(wsdlLocation, serviceName, features);
     }
 
@@ -85,10 +85,10 @@ public class HeroWebServiceService
     }
 
     private static URL __getWsdlLocation() {
-        if (HEROWEBSERVICESERVICE_EXCEPTION!= null) {
-            throw HEROWEBSERVICESERVICE_EXCEPTION;
+        if (HEROSERVICE_EXCEPTION!= null) {
+            throw HEROSERVICE_EXCEPTION;
         }
-        return HEROWEBSERVICESERVICE_WSDL_LOCATION;
+        return HEROSERVICE_WSDL_LOCATION;
     }
 
 }
