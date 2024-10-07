@@ -28,6 +28,8 @@ public class ObjectFactory {
     private static final QName _AddHeroResponse_QNAME = new QName("http://soap.se.ifmo.ru/", "addHeroResponse");
     private static final QName _DeleteHero_QNAME = new QName("http://soap.se.ifmo.ru/", "deleteHero");
     private static final QName _DeleteHeroResponse_QNAME = new QName("http://soap.se.ifmo.ru/", "deleteHeroResponse");
+    private static final QName _FindHero_QNAME = new QName("http://soap.se.ifmo.ru/", "findHero");
+    private static final QName _FindHeroResponse_QNAME = new QName("http://soap.se.ifmo.ru/", "findHeroResponse");
     private static final QName _ListHeroes_QNAME = new QName("http://soap.se.ifmo.ru/", "listHeroes");
     private static final QName _ListHeroesResponse_QNAME = new QName("http://soap.se.ifmo.ru/", "listHeroesResponse");
     private static final QName _UpdateHero_QNAME = new QName("http://soap.se.ifmo.ru/", "updateHero");
@@ -70,6 +72,22 @@ public class ObjectFactory {
      */
     public DeleteHeroResponse createDeleteHeroResponse() {
         return new DeleteHeroResponse();
+    }
+
+    /**
+     * Create an instance of {@link FindHero }
+     * 
+     */
+    public FindHero createFindHero() {
+        return new FindHero();
+    }
+
+    /**
+     * Create an instance of {@link FindHeroResponse }
+     * 
+     */
+    public FindHeroResponse createFindHeroResponse() {
+        return new FindHeroResponse();
     }
 
     /**
@@ -170,6 +188,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://soap.se.ifmo.ru/", name = "deleteHeroResponse")
     public JAXBElement<DeleteHeroResponse> createDeleteHeroResponse(DeleteHeroResponse value) {
         return new JAXBElement<DeleteHeroResponse>(_DeleteHeroResponse_QNAME, DeleteHeroResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindHero }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FindHero }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.se.ifmo.ru/", name = "findHero")
+    public JAXBElement<FindHero> createFindHero(FindHero value) {
+        return new JAXBElement<FindHero>(_FindHero_QNAME, FindHero.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindHeroResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link FindHeroResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.se.ifmo.ru/", name = "findHeroResponse")
+    public JAXBElement<FindHeroResponse> createFindHeroResponse(FindHeroResponse value) {
+        return new JAXBElement<FindHeroResponse>(_FindHeroResponse_QNAME, FindHeroResponse.class, null, value);
     }
 
     /**

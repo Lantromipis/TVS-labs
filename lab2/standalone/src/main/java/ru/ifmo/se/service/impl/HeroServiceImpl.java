@@ -24,6 +24,16 @@ public class HeroServiceImpl implements HeroService {
     }
 
     @Override
+    public HeroDto findHero(long id) {
+        HeroEntity existingHero = heroRepository.findHero(id);
+        if (existingHero == null) {
+            throw new EntityNotFoundByIdException(String.valueOf(id));
+        }
+
+        return HeroMapper.from(existingHero);
+    }
+
+    @Override
     public HeroDto addHero(HeroDto hero) {
         HeroEntity heroEntity = HeroMapper.from(hero);
         heroEntity = heroRepository.addhero(heroEntity);

@@ -45,7 +45,7 @@ public class Main {
     }
 
     private static Map<String, CliCommand> produceCommands(String soapUrl) throws Exception {
-        Map<String, CliCommand> commands = new HashMap<>();
+        Map<String, CliCommand> commands = new LinkedHashMap<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -59,6 +59,9 @@ public class Main {
 
         ListHeroesCommand listHeroesCommand = new ListHeroesCommand(heroWebServiceProxy, objectMapper);
         commands.put(listHeroesCommand.getName(), listHeroesCommand);
+
+        GetHeroCommand getHeroCommand = new GetHeroCommand(heroWebServiceProxy, objectMapper);
+        commands.put(getHeroCommand.getName(), getHeroCommand);
 
         AddHeroCommand addHeroCommand = new AddHeroCommand(heroWebServiceProxy, objectMapper);
         commands.put(addHeroCommand.getName(), addHeroCommand);

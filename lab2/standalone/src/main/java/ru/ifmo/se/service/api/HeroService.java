@@ -7,6 +7,8 @@ import java.util.List;
 public interface HeroService {
     List<HeroDto> findHeroes(String rsqlPredicate, int offset, int limit);
 
+    HeroDto findHero(long id);
+
     HeroDto addHero(HeroDto hero);
 
     HeroDto updateHero(HeroDto hero);

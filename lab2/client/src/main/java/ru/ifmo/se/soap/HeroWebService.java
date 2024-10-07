@@ -77,6 +77,21 @@ public interface HeroWebService {
      * 
      * @param arg0
      * @return
+     *     returns ru.ifmo.se.soap.HeroDto
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findHero", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.FindHero")
+    @ResponseWrapper(localName = "findHeroResponse", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.FindHeroResponse")
+    @Action(input = "http://soap.se.ifmo.ru/HeroWebService/findHeroRequest", output = "http://soap.se.ifmo.ru/HeroWebService/findHeroResponse")
+    public HeroDto findHero(
+        @WebParam(name = "arg0", targetNamespace = "")
+        long arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
      *     returns java.util.List<ru.ifmo.se.soap.HeroDto>
      */
     @WebMethod

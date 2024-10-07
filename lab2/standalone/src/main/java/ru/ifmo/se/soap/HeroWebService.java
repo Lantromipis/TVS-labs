@@ -33,6 +33,11 @@ public class HeroWebService {
     }
 
     @WebMethod
+    public HeroDto findHero(long id) {
+        return heroService.findHero(id);
+    }
+
+    @WebMethod
     public HeroDto addHero(HeroDto heroDto) {
         return heroService.addHero(heroDto);
     }
