@@ -31,21 +31,6 @@ public interface HeroWebService {
      * @param arg0
      * @return
      *     returns ru.ifmo.se.soap.HeroDto
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "addHero", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.AddHero")
-    @ResponseWrapper(localName = "addHeroResponse", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.AddHeroResponse")
-    @Action(input = "http://soap.se.ifmo.ru/HeroWebService/addHeroRequest", output = "http://soap.se.ifmo.ru/HeroWebService/addHeroResponse")
-    public HeroDto addHero(
-        @WebParam(name = "arg0", targetNamespace = "")
-        HeroDto arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns ru.ifmo.se.soap.HeroDto
      * @throws EntityNotFoundByIdException
      */
     @WebMethod
@@ -65,21 +50,16 @@ public interface HeroWebService {
      * 
      * @param arg0
      * @return
-     *     returns boolean
-     * @throws EntityNotFoundByIdException
+     *     returns ru.ifmo.se.soap.HeroDto
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "deleteHero", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.DeleteHero")
-    @ResponseWrapper(localName = "deleteHeroResponse", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.DeleteHeroResponse")
-    @Action(input = "http://soap.se.ifmo.ru/HeroWebService/deleteHeroRequest", output = "http://soap.se.ifmo.ru/HeroWebService/deleteHeroResponse", fault = {
-        @FaultAction(className = EntityNotFoundByIdException.class, value = "http://soap.se.ifmo.ru/HeroWebService/deleteHero/Fault/EntityNotFoundByIdException")
-    })
-    public boolean deleteHero(
+    @RequestWrapper(localName = "addHero", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.AddHero")
+    @ResponseWrapper(localName = "addHeroResponse", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.AddHeroResponse")
+    @Action(input = "http://soap.se.ifmo.ru/HeroWebService/addHeroRequest", output = "http://soap.se.ifmo.ru/HeroWebService/addHeroResponse")
+    public HeroDto addHero(
         @WebParam(name = "arg0", targetNamespace = "")
-        long arg0)
-        throws EntityNotFoundByIdException
-    ;
+        HeroDto arg0);
 
     /**
      * 
@@ -101,6 +81,26 @@ public interface HeroWebService {
         long arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         HeroDto arg1)
+        throws EntityNotFoundByIdException
+    ;
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns boolean
+     * @throws EntityNotFoundByIdException
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "deleteHero", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.DeleteHero")
+    @ResponseWrapper(localName = "deleteHeroResponse", targetNamespace = "http://soap.se.ifmo.ru/", className = "ru.ifmo.se.soap.DeleteHeroResponse")
+    @Action(input = "http://soap.se.ifmo.ru/HeroWebService/deleteHeroRequest", output = "http://soap.se.ifmo.ru/HeroWebService/deleteHeroResponse", fault = {
+        @FaultAction(className = EntityNotFoundByIdException.class, value = "http://soap.se.ifmo.ru/HeroWebService/deleteHero/Fault/EntityNotFoundByIdException")
+    })
+    public boolean deleteHero(
+        @WebParam(name = "arg0", targetNamespace = "")
+        long arg0)
         throws EntityNotFoundByIdException
     ;
 
