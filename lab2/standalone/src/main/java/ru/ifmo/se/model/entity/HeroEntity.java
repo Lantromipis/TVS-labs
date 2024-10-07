@@ -16,18 +16,18 @@ public class HeroEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Enumerated(EnumType.STRING)
     @Column(name = "main_attribute")
     private MainAttribute mainAttribute;
     @Column(name = "melee")
-    private boolean melee;
+    private Boolean melee;
     @Column(name = "move_speed")
-    private int moveSpeed;
+    private Integer moveSpeed;
     @Column(name = "damage")
-    private int damage;
+    private Integer damage;
     @Column(name = "armor")
-    private double armor;
+    private Double armor;
 }
