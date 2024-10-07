@@ -3,12 +3,9 @@ package ru.ifmo.se;
 import com.fasterxml.jackson.core.util.DefaultIndenter;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import ru.ifmo.se.command.api.CliCommand;
 import ru.ifmo.se.command.impl.HelpCommand;
 import ru.ifmo.se.command.impl.ListHeroesCommand;
-import ru.ifmo.se.soap.HeroDto;
-import ru.ifmo.se.soap.HeroListRequestDto;
 import ru.ifmo.se.soap.HeroWebService;
 import ru.ifmo.se.soap.HeroWebServiceService;
 
@@ -18,7 +15,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Map<String, CliCommand> commands = produceCommands();
+        if (args.length < 1) {
+            System.out.println("Usage: java -jar <jar-file-name>.jar <soap-service-url>");
+            System.exit(1);
+        }
+
+        String soapUrl = args[0];
+
+        Map<String, CliCommand> commands = produceCommands(soapUrl);
         Scanner sc = new Scanner(System.in);
 
         String line = null;
@@ -38,7 +42,7 @@ public class Main {
         }
     }
 
-    private static Map<String, CliCommand> produceCommands() throws Exception {
+    private static Map<String, CliCommand> produceCommands(String soapUrl) throws Exception {
         Map<String, CliCommand> commands = new HashMap<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -47,7 +51,7 @@ public class Main {
         prettyPrinter.indentArraysWith(DefaultIndenter.SYSTEM_LINEFEED_INSTANCE);
         objectMapper.setDefaultPrettyPrinter(prettyPrinter);
 
-        URL url = new URL("http://localhost:8080/lab1-j2ee/HeroService?wsdl");
+        URL url = new URL(soapUrl);
         HeroWebServiceService heroWebServiceService = new HeroWebServiceService(url, new QName("http://soap.se.ifmo.ru/", "HeroService"));
         HeroWebService heroWebServiceProxy = heroWebServiceService.getHeroWebServicePort();
 

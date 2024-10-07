@@ -21,5 +21,7 @@ public class Main {
         HeroService heroService = new HeroServiceImpl(heroRepository);
 
         Endpoint.publish("http://localhost:8080/HeroService", new HeroWebService(heroService));
+
+        System.out.println("\nServer is ready!\n");
     }
 }

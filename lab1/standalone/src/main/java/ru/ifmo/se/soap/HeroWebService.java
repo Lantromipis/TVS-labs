@@ -8,7 +8,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import java.util.List;
 
-@WebService
+@WebService(serviceName = "HeroService")
 public class HeroWebService {
     private final HeroService heroService;
 
