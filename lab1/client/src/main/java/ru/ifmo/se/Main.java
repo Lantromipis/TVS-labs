@@ -31,12 +31,16 @@ public class Main {
             if (line.equals("exit")) {
                 break;
             }
-            CliCommand command = commands.get(line);
-            if (command == null) {
-                System.out.println("Unknown command: " + line + "\n");
-            } else {
-                command.execute(sc);
-                System.out.println("\n");
+            try {
+                CliCommand command = commands.get(line);
+                if (command == null) {
+                    System.out.println("Unknown command: " + line + "\n");
+                } else {
+                    command.execute(sc);
+                    System.out.println("\n");
+                }
+            } catch (Exception e) {
+                System.out.println("Command failed to execute!!! Message: <" + e.getMessage() + ">\n");
             }
         }
     }
