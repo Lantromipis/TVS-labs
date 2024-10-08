@@ -55,7 +55,6 @@
     </dependencies>
 
     <build>
-        <finalName>first-service</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>

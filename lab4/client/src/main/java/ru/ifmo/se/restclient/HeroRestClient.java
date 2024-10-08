@@ -19,7 +19,7 @@ public class HeroRestClient {
     public List<HeroDto> getHeroes(String rsqlPredicate, Integer limit, Integer offset) {
         WebTarget webTarget = client.target(baseUrl);
 
-        webTarget = webTarget.queryParam("rsql", rsqlPredicate);
+        webTarget = webTarget.queryParam("rsqlPredicate", rsqlPredicate);
         webTarget = webTarget.queryParam("limit", limit);
         webTarget = webTarget.queryParam("offset", offset);
 
