@@ -21,7 +21,7 @@ public class HeroServiceImpl implements HeroService {
 
     @Override
     public List<HeroDto> findHeroes(String rsqlPredicate, int offset, int limit) throws UnsupportedRsqlOperatorException, UnknownEntityFieldException {
-        List<HeroEntity> heroEntities = heroRepository.findHeroes(rsqlPredicate, offset, limit);
+        List<HeroEntity> heroEntities = heroRepository.findHeroes(rsqlPredicate, limit, offset);
         return heroEntities.stream().map(HeroMapper::from).toList();
     }
 

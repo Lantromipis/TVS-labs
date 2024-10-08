@@ -29,7 +29,7 @@ public class HeroWebService {
             offset = requestDto.getOffset();
         }
 
-        return heroService.findHeroes(requestDto.getRsqlPredicate(), limit, offset);
+        return heroService.findHeroes(requestDto.getRsqlPredicate(), offset, limit);
     }
 
     @WebMethod
