@@ -52,10 +52,10 @@
 ## Запуск и проверка standalone сервиса
 1. Установить JDK 17 и maven последней версии
 2. Освободить порт 8080
-3. `mvn clean install` внутри директории lab1-standalone
-4. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab1-standalone.jar` внутри директории lab1-standalone/target (--add-opens java.base/java.lang=ALL-UNNAMED необходим, так как все зависимости jax-ws устарели, а в JDK 17 изменилось API)
-5. `mvn clean install` внутри директории lab1-client
-6. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab1-client.jar http://localhost:8080/HeroService?wsdl` внутри директории lab1-client/target 
+3. `mvn clean install` внутри директории lab1/standalone
+4. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab1-standalone.jar` внутри директории lab1/standalone/target (--add-opens java.base/java.lang=ALL-UNNAMED необходим, так как все зависимости jax-ws устарели, а в JDK 17 изменилось API)
+5. `mvn clean install` внутри директории lab1/client
+6. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab1-client.jar http://localhost:8080/HeroService?wsdl` внутри директории lab1/client/target 
 7. Воспользоваться командой `help` и командой `listHeroes`
 8. Для написания RSQL предикатов можно воспользоваться README из библиотеки https://github.com/jirutka/rsql-parser. Поддержаны логические операторы AND и OR, а также операторы сравнения `==`, `!=`, `=lt=`, `=le=`, `=gt=`, `=ge=`.
 
@@ -84,10 +84,10 @@
 </datasource>
 ```
 8. Освободить порт 8080
-9. `mvn clean install` внутри директории lab1-j2ee
-10. Задеплоить .war из /target
-11. `mvn clean install` внутри директории lab1-client
-12. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab1-client.jar http://localhost:8080/lab1-j2ee/HeroService?wsdl` внутри дирикетории lab1-client/target
+9. `mvn clean install` внутри директории lab1/j2ee
+10. Задеплоить `lab1-j2ee.war`
+11. `mvn clean install` внутри директории lab1/client
+12. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab1-client.jar http://localhost:8080/lab1-j2ee/HeroService?wsdl` внутри дирикетории lab1/client/target
 14. Воспользоваться командой `help` и командой `listHeroes`
 15. Для написания RSQL предикатов можно воспользоваться README из библиотеки https://github.com/jirutka/rsql-parser. Поддержаны логические операторы AND и OR, а также операторы сравнения `==`, `!=`, `=lt=`, `=le=`, `=gt=`, `=ge=`.
 
