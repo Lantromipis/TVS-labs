@@ -1,4 +1,4 @@
-# Работа №2. Реализация CRUD с помощью SOAP-сервиса
+# Работа №7. Регистрация и поиск сервиса в реестре jUDDI
 
 ## Директории с артефактами
 1. client - содержит клиент для использования сервиса. Клиент представляет собой консольное приложение
@@ -50,13 +50,14 @@
 
 ## Запуск и проверка standalone сервиса
 1. Установить JDK 17 и maven последней версии
-2. Освободить порт 8080
-3. `mvn clean install` внутри директории lab2/standalone
-4. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab2-standalone.jar` внутри директории lab2/standalone/target (--add-opens java.base/java.lang=ALL-UNNAMED необходим, так как все зависимости jax-ws устарели, а в JDK 17 изменилось API)
-5. `mvn clean install` внутри директории lab2/client
-6. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab2-client.jar http://localhost:8080/HeroService?wsdl` внутри директории lab2/client/target 
-7. Воспользоваться командой `help`
-8. Для написания RSQL предикатов можно воспользоваться README из библиотеки https://github.com/jirutka/rsql-parser. Поддержаны логические операторы AND и OR, а также операторы сравнения `==`, `!=`, `=lt=`, `=le=`, `=gt=`, `=ge=`.
+2. Установить и запустить jUDDI последней версии (localhost:8080)
+3. Освободить порт 8080
+4. `mvn clean install` внутри директории lab3/standalone
+5. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab7-standalone.jar` внутри директории lab3/standalone/target (--add-opens java.base/java.lang=ALL-UNNAMED необходим, так как все зависимости jax-ws устарели, а в JDK 17 изменилось API)
+6. `mvn clean install` внутри директории lab3/client
+7. `java --add-opens java.base/java.lang=ALL-UNNAMED -jar lab7-client.jar http://localhost:8080/HeroService?wsdl` внутри директории lab3/client/target 
+8. Воспользоваться командой `help`
+9. Для написания RSQL предикатов можно воспользоваться README из библиотеки https://github.com/jirutka/rsql-parser. Поддержаны логические операторы AND и OR, а также операторы сравнения `==`, `!=`, `=lt=`, `=le=`, `=gt=`, `=ge=`.
 
 ## Примеры RSQL предикатов для тестирования:
 1. `melee==true` -- получить всех героев ближнего боя
